@@ -18,12 +18,23 @@ This is a simple calendar application built with **Laravel 12.x** that allows yo
 
 Ensure the following software is installed:
 
-- **PHP >= 8.2**
-- **Laravel 12.x**
-- **Composer**
-- **MySQL** or any other database of your choice (you can also use SQLite for local development)
-- **Bootstrap** CSS (For responsive UI)
-- **AJAX** (For dynamic task management without page reloads)
+- **PHP >= 8.2**  
+  Ensure that PHP 8.2 or higher is installed on your system.
+
+- **Laravel 12.x**  
+  Laravel 12.x framework is required to run this project.
+
+- **Composer**  
+  Composer is used for dependency management in PHP.
+
+- **MySQL** (or any another relational database of your choice)  
+  You can also use **SQLite** for local development.
+
+- **Bootstrap CSS**  
+  Bootstrap is used for responsive and user-friendly UI design.
+
+- **AJAX**  
+  Used for dynamic task management and interactivity without reloading the page.
 
 ---
 
@@ -33,12 +44,12 @@ Follow these steps to set up the project on your local machine:
 
 1. **Clone the repository** (if applicable):
 
-Clone the project repository from GitHub:
-
-```bash
-git clone https://github.com/your-username/task-calendar.git
-cd task-calendar
-```
+    Clone the project repository from GitHub:
+    
+    ```bash
+    git clone https://github.com/your-username/task-calendar.git
+    cd task-calendar
+    ```
 
 2. **Install dependencies** using Composer:
 
@@ -78,14 +89,17 @@ cd task-calendar
     ```bash
     php artisan migrate --force
     ```
+    
 6. **Run the application:**
 
     ```bash
     php artisan serve
     ```
-
+    
+---
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
