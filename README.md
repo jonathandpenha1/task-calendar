@@ -89,8 +89,16 @@ Follow these steps to set up the project on your local machine:
     ```bash
     php artisan migrate --force
     ```
-    
-6. **Run the application:**
+
+6. **Seed the Database:**
+
+To populate the database with sample data, you need to run the seeder command. This will fill your database with default values for tasks and categories:
+
+    ```bash
+    php artisan db:seed
+    ```
+
+7. **Run the application:**
 
     ```bash
     php artisan serve
@@ -101,6 +109,7 @@ Follow these steps to set up the project on your local machine:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 
 
