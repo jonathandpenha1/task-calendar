@@ -342,5 +342,46 @@ document.addEventListener('DOMContentLoaded', function() {
         todayCell.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 });
+
+// Reload Calendar with tasks for selected month and year
+function reloadCalendar(month, year) {
+    fetch(`/tasks/${month}/${year}`)
+        .then(response => response.json())
+        .then(tasks => {
+            // Clear existing task events in the calendar
+            document.querySelectorAll('.events-container').forEach(container => {
+                container.innerHTML = '';
+            });
+
+            // Add the new tasks to the calendar cells
+            tasks.forEach(task => {
+                const taskDate = task.due_date.split(' ')[0]; // '2025-11-23'
+                const taskDateCell = document.querySelector(`[data-date="${taskDate}"] .events-container`);
+
+                if (taskDateCell) {
+                    const taskElement = document.createElement('div');
+                    taskElement.classList.add('task-title');
+                    taskElement.style.border = `1px solid ${task.category.color || '#6c757d'}`;
+                    taskElement.style.color = task.category.color || '#6c757d';
+                    taskElement.style.borderRadius = '20px';
+                    taskElement.style.fontSize = '0.4em';
+                    taskElement.textContent = task.title;
+
+                    taskDateCell.appendChild(taskElement);
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching tasks:', error));
+}
+
+// Attach click event listeners to the navigation buttons
+document.querySelectorAll('.btn-outline-secondary').forEach(button => {
+    button.addEventListener('click', function(event) {
+        const month = parseInt(event.target.href.split('month=')[1].split('&')[0], 10);
+        const year = parseInt(event.target.href.split('year=')[1], 10);
+        reloadCalendar(month, year);
+    });
+});
+
 </script>
 @endpush

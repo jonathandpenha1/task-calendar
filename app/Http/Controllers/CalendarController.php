@@ -22,4 +22,15 @@ class CalendarController extends Controller
         $categories = Category::all();
         return view('calendar.index', compact('year', 'month', 'tasks', 'categories'));
     }
+
+     public function getTasksForMonth($month, $year)
+    {
+        $tasks = Task::whereYear('due_date', $year)
+                    ->whereMonth('due_date', $month)
+                    ->with('category')
+                    ->get();
+
+        // Return tasks as JSON for AJAX request
+        return response()->json($tasks);
+    }
 }

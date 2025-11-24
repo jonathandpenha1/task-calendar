@@ -11,3 +11,4 @@ Route::post('/tasks/filter', [TaskController::class, 'filter']);
 Route::post('/tasks/{task}/toggle', [TaskController::class, 'toggleComplete']);
 Route::get('/tasks/export', [TaskController::class, 'export'])->name('tasks.export');
 Route::post('/tasks/import', [TaskController::class, 'import'])->name('tasks.import');
+Route::get('/tasks/{month}/{year}', [TaskController::class, 'getTasksForMonth']);
